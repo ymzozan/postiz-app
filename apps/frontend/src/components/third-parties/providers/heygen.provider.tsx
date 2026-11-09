@@ -11,7 +11,7 @@ import { Button } from '@gitroom/react/form/button';
 import { FC, useCallback, useState } from 'react';
 import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
 import clsx from 'clsx';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers-zod4/zod';
 import { object, string } from 'zod';
 import { Select } from '@gitroom/react/form/select';
 import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
@@ -121,6 +121,7 @@ const HeygenProviderComponent = () => {
         selectedVoice: string().min(1, 'Voice is required'),
         aspect_ratio: string().min(1, 'Aspect ratio is required'),
         captions: string().min(1, 'Captions is required'),
+        type: string(),
       })
     ),
   });

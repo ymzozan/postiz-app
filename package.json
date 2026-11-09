@@ -253,8 +253,9 @@
     "ws": "^8.22.0",
     "yargs": "^17.7.2",
     "yup": "^1.4.0",
-    "zod": "^3.25.76",
-    "zustand": "^5.0.5"
+    "zod": "^4.6.7",
+    "zustand": "^5.0.5",
+    "@hookform/resolvers-zod4": "npm:@hookform/resolvers@5.2.2"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.7.1",
@@ -340,10 +341,17 @@
       "@walletconnect/universal-provider>lodash": "^4.18.1",
       "engine.io-client>ws": "^8.22.0",
       "request>form-data": "^2.5.6",
-      "viem>ws": "^8.22.0"
+      "viem>ws": "^8.22.0",
+      "node-forge@1.4.0": "1.4.1",
+      "decode-uri-component@0.2.2": "0.5.1",
+      "graphql-scalars@1.25.0": "2.0.1",
+      "follow-redirects@1.16.1": "1.16.2"
     },
     "onlyBuiltDependencies": [
       "bcrypt"
-    ]
+    ],
+    "patchedDependencies": {
+      "query-string@7.1.3": "patches/query-string@7.1.3.patch"
+    }
   }
 }
