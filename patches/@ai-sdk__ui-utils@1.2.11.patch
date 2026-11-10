@@ -1,0 +1,50 @@
+diff --git a/dist/index.js b/dist/index.js
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -192 +192 @@
+-var import_provider_utils = require("@ai-sdk/provider-utils");
++var secureJson = require("secure-json-parse");
+@@ -512,0 +513,7 @@
++function tryParseJson(text) {
++  try {
++    return { success: true, value: secureJson.parse(text) };
++  } catch {
++    return { success: false };
++  }
++}
+@@ -517 +524 @@
+-  let result = (0, import_provider_utils.safeParseJSON)({ text: jsonText });
++  let result = tryParseJson(jsonText);
+@@ -521 +528 @@
+-  result = (0, import_provider_utils.safeParseJSON)({ text: fixJson(jsonText) });
++  result = tryParseJson(fixJson(jsonText));
+@@ -1623 +1629,0 @@
+-var import_provider_utils4 = require("@ai-sdk/provider-utils");
+@@ -1654 +1660 @@
+-    [import_provider_utils4.validatorSymbol]: true,
++    [Symbol.for("vercel.ai.validator")]: true,
+diff --git a/dist/index.mjs b/dist/index.mjs
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -136 +136 @@
+-import { safeParseJSON } from "@ai-sdk/provider-utils";
++import secureJson from "secure-json-parse";
+@@ -456,0 +457,7 @@
++function tryParseJson(text) {
++  try {
++    return { success: true, value: secureJson.parse(text) };
++  } catch {
++    return { success: false };
++  }
++}
+@@ -461 +468 @@
+-  let result = safeParseJSON({ text: jsonText });
++  let result = tryParseJson(jsonText);
+@@ -465 +472 @@
+-  result = safeParseJSON({ text: fixJson(jsonText) });
++  result = tryParseJson(fixJson(jsonText));
+@@ -1567 +1573,0 @@
+-import { validatorSymbol } from "@ai-sdk/provider-utils";
+@@ -1598 +1604 @@
+-    [validatorSymbol]: true,
++    [Symbol.for("vercel.ai.validator")]: true,
