@@ -1,0 +1,7 @@
+diff --git a/formats/video.js b/formats/video.js
+--- a/formats/video.js
++++ b/formats/video.js
+@@ -43 +43,2 @@
+-    return `<a href="${escapeText(video)}">${escapeText(video)}</a>`;
++    const href = Video.sanitize(video);
++    return `<a href="${escapeText(href)}">${escapeText(video)}</a>`;

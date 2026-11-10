@@ -157,11 +157,27 @@ const LoadMessages: FC<{ id: string }> = ({ id }) => {
 
 const Message: FC<UserMessageProps> = (props) => {
   const convertContentToImagesAndVideo = useMemo(() => {
-    const content = props.message?.content || '';
+    const content: unknown = props.message?.content;
     const text =
       typeof content === 'string'
         ? content
-        : content.map((p) => (p.type === 'text' ? p.text : '')).join('');
+        : Array.isArray(content)
+          ? content
+              .map((part: unknown) => {
+                if (
+                  typeof part === 'object' &&
+                  part !== null &&
+                  'type' in part &&
+                  part.type === 'text' &&
+                  'text' in part &&
+                  typeof part.text === 'string'
+                ) {
+                  return part.text;
+                }
+                return '';
+              })
+              .join('')
+          : '';
 
     return text
       .replace(/Video: (http.*mp4\n)/g, (match, p1) => {
