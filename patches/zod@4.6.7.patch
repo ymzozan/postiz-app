@@ -1,0 +1,51 @@
+diff --git a/v3/types.cjs b/v3/types.cjs
+--- a/v3/types.cjs
++++ b/v3/types.cjs
+@@ -1794,2 +1794,3 @@
+                 });
++                if (tooBig) return parseUtil_js_1.INVALID;
+                 status.dirty();
+@@ -1820,3 +1821,3 @@
+                 });
+-                status.dirty();
++                return parseUtil_js_1.INVALID;
+             }
+@@ -2851,3 +2852,3 @@
+                 });
+-                status.dirty();
++                return parseUtil_js_1.INVALID;
+             }
+diff --git a/v3/types.js b/v3/types.js
+--- a/v3/types.js
++++ b/v3/types.js
+@@ -1773,2 +1773,3 @@
+                 });
++                if (tooBig) return INVALID;
+                 status.dirty();
+@@ -1799,3 +1800,3 @@
+                 });
+-                status.dirty();
++                return INVALID;
+             }
+@@ -2822,3 +2823,3 @@
+                 });
+-                status.dirty();
++                return INVALID;
+             }
+diff --git a/src/v3/types.ts b/src/v3/types.ts
+--- a/src/v3/types.ts
++++ b/src/v3/types.ts
+@@ -2267,2 +2267,3 @@
+         });
++        if (tooBig) return INVALID;
+         status.dirty();
+@@ -2295,3 +2296,3 @@
+         });
+-        status.dirty();
++        return INVALID;
+       }
+@@ -3729,3 +3730,3 @@
+         });
+-        status.dirty();
++        return INVALID;
+       }
